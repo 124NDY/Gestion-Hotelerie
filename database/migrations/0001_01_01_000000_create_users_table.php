@@ -17,11 +17,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-<<<<<<< HEAD
-            $table->enum('role', ['admin', 'receptionniste'])->default('receptionniste');
-=======
->>>>>>> b336feec924672af61f2f862ed61714546fd3112
-            $table->rememberToken();
+            $table->enum('role', ['admin', 'receptionniste'])->default('receptionniste');            $table->rememberToken();
             $table->timestamps();
         });
 
@@ -51,3 +47,4 @@ return new class extends Migration
         Schema::dropIfExists('sessions');
     }
 };
+

@@ -11,7 +11,6 @@ class DashboardController extends Controller
 {
     public function index()
     {
-<<<<<<< HEAD
         $stats = [
             'chambres_disponibles' => Chambre::where('statut', 'disponible')->count(),
             'chambres_occupees'    => Chambre::where('statut', 'occupee')->count(),
@@ -36,25 +35,5 @@ class DashboardController extends Controller
             ->take(5)
             ->get();
 
-        return view('dashboard.index', compact('stats', 'reservations_mois', 'dernieres_reservations'));
-=======
-        $totalChambres = Chambre::count();
-        $chambresDisponibles = Chambre::where('statut', 'disponible')->count();
-        $chambresOccupees = Chambre::where('statut', 'occupee')->count();
-        $totalClients = Client::count();
-        $reservationsActives = Reservation::where('statut', 'active')->count();
-        $totalReservations = Reservation::count();
-        $totalPaiements = Paiement::where('statut', 'paye')->sum('montant');
-
-        return view('dashboard', compact(
-            'totalChambres',
-            'chambresDisponibles',
-            'chambresOccupees',
-            'totalClients',
-            'reservationsActives',
-            'totalReservations',
-            'totalPaiements'
-        ));
->>>>>>> b336feec924672af61f2f862ed61714546fd3112
-    }
+        return view('dashboard.index', compact('stats', 'reservations_mois', 'dernieres_reservations'));    }
 }

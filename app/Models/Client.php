@@ -11,15 +11,9 @@ class Client extends Model
         'prenom',
         'email',
         'telephone',
-<<<<<<< HEAD
         'cin',
         'nationalite',
-        'adresse',
-=======
-        'adresse',
-        'cin',
->>>>>>> b336feec924672af61f2f862ed61714546fd3112
-    ];
+        'adresse',    ];
 
     public function reservations()
     {

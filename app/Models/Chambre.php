@@ -9,12 +9,7 @@ class Chambre extends Model
     protected $fillable = [
         'numero',
         'type',
-<<<<<<< HEAD
-        'prix_nuit',
-=======
-        'prix',
->>>>>>> b336feec924672af61f2f862ed61714546fd3112
-        'statut',
+        'prix_nuit',        'statut',
         'description',
         'image',
     ];
