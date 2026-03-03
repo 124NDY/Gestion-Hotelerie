@@ -9,16 +9,16 @@ use App\Http\Controllers\PaiementController;
 use App\Http\Controllers\FactureController;
 use App\Http\Controllers\ProfileController;
 
-// 🔐 Routes protégées par authentification
+// 🔒 Routes protégées par authentification
 Route::middleware(['auth'])->group(function () {
 
     // 📊 Dashboard
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
-    // 🏠 Chambres — Admin seulement pour créer/modifier/supprimer
+    // 🛏 Chambres — Admin seulement pour créer/modifier/supprimer
     Route::get('chambres', [ChambreController::class, 'index'])->name('chambres.index');
     Route::get('chambres/{chambre}', [ChambreController::class, 'show'])->name('chambres.show');
-    Route::middleware('role:admin')->group(function () {
+    Route::middleware(['role:admin'])->group(function () {
         Route::get('chambres/create', [ChambreController::class, 'create'])->name('chambres.create');
         Route::post('chambres', [ChambreController::class, 'store'])->name('chambres.store');
         Route::get('chambres/{chambre}/edit', [ChambreController::class, 'edit'])->name('chambres.edit');
@@ -38,15 +38,14 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('paiements', PaiementController::class);
 
     // 🧾 Factures
-    Route::get('factures', [FactureController::class, 'index'])->name('factures.index');
-    Route::get('factures/{reservation}/generer', [FactureController::class, 'generer'])->name('factures.generer');
+    Route::resource('factures', FactureController::class);
     Route::get('factures/{facture}/pdf', [FactureController::class, 'pdf'])->name('factures.pdf');
+    Route::get('factures/{reservation}/generer', [FactureController::class, 'generer'])->name('factures.generer');
 
     // 👤 Profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
 });
 
 require __DIR__.'/auth.php';

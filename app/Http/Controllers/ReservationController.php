@@ -3,22 +3,36 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reservation;
+<<<<<<< HEAD
 use App\Models\Chambre;
 use App\Models\Client;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+=======
+use App\Models\Client;
+use App\Models\Chambre;
+use Illuminate\Http\Request;
+>>>>>>> b336feec924672af61f2f862ed61714546fd3112
 
 class ReservationController extends Controller
 {
     public function index()
     {
+<<<<<<< HEAD
         $reservations = Reservation::with(['client', 'chambre'])->latest()->paginate(10);
+=======
+        $reservations = Reservation::with(['client', 'chambre'])->get();
+>>>>>>> b336feec924672af61f2f862ed61714546fd3112
         return view('reservations.index', compact('reservations'));
     }
 
     public function create()
     {
+<<<<<<< HEAD
         $clients  = Client::all();
+=======
+        $clients = Client::all();
+>>>>>>> b336feec924672af61f2f862ed61714546fd3112
         $chambres = Chambre::where('statut', 'disponible')->get();
         return view('reservations.create', compact('clients', 'chambres'));
     }
@@ -26,6 +40,7 @@ class ReservationController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+<<<<<<< HEAD
             'client_id'    => 'required|exists:clients,id',
             'chambre_id'   => 'required|exists:chambres,id',
             'date_arrivee' => 'required|date',
@@ -115,14 +130,50 @@ class ReservationController extends Controller
         $reservation->delete();
         return redirect()->route('reservations.index')
                          ->with('success', 'Réservation supprimée !');
+=======
+            'client_id' => 'required|exists:clients,id',
+            'chambre_id' => 'required|exists:chambres,id',
+            'date_arrivee' => 'required|date',
+            'date_depart' => 'required|date|after:date_arrivee',
+            'remarques' => 'nullable',
+        ]);
+
+        Reservation::create($request->all());
+
+        // Changer le statut de la chambre en occupée
+        Chambre::find($request->chambre_id)->update(['statut' => 'occupee']);
+
+        return redirect()->route('reservations.index')->with('success', 'Réservation créée avec succès !');
+>>>>>>> b336feec924672af61f2f862ed61714546fd3112
     }
 
     public function annuler(Reservation $reservation)
     {
         $reservation->update(['statut' => 'annulee']);
+<<<<<<< HEAD
         $reservation->chambre->update(['statut' => 'disponible']);
 
         return redirect()->route('reservations.index')
                          ->with('success', 'Réservation annulée avec succès !');
+=======
+
+        // Remettre la chambre disponible
+        $reservation->chambre->update(['statut' => 'disponible']);
+
+        return redirect()->route('reservations.index')->with('success', 'Réservation annulée avec succès !');
+    }
+
+    public function historique()
+    {
+        $reservations = Reservation::with(['client', 'chambre'])->orderBy('created_at', 'desc')->get();
+        return view('reservations.historique', compact('reservations'));
+    }
+
+    public function destroy(Reservation $reservation)
+    {
+        $reservation->chambre->update(['statut' => 'disponible']);
+        $reservation->delete();
+        return redirect()->route('reservations.index')->with('success', 'Réservation supprimée avec succès !');
+>>>>>>> b336feec924672af61f2f862ed61714546fd3112
     }
 }

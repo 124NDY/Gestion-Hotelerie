@@ -12,8 +12,12 @@ class Reservation extends Model
         'date_arrivee',
         'date_depart',
         'statut',
+<<<<<<< HEAD
         'montant_total',
         'notes',
+=======
+        'remarques',
+>>>>>>> b336feec924672af61f2f862ed61714546fd3112
     ];
 
     public function client()
@@ -30,9 +34,12 @@ class Reservation extends Model
     {
         return $this->hasOne(Paiement::class);
     }
+<<<<<<< HEAD
 
     public function facture()
     {
         return $this->hasOne(Facture::class);
     }
+=======
+>>>>>>> b336feec924672af61f2f862ed61714546fd3112
 }
