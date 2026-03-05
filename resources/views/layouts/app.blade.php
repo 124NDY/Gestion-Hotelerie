@@ -11,7 +11,14 @@
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
     </style>
 </head>
-<body x-data="{ darkMode: false, sidebarOpen: true }" :class="darkMode ? 'dark bg-gray-900 text-gray-100' : 'bg-gray-100 text-gray-800'" class="min-h-screen flex">
+<body x-data="{
+    sidebarOpen: true,
+    darkMode: localStorage.getItem('darkMode') === 'true',
+    toggleDark() {
+        this.darkMode = !this.darkMode;
+        localStorage.setItem('darkMode', this.darkMode);
+    }
+}" :class="darkMode ? 'dark bg-gray-900 text-gray-100' : 'bg-gray-100 text-gray-800'" class="min-h-screen flex">
 
     <!-- Sidebar qui pousse le contenu -->
     <aside :class="sidebarOpen ? 'w-72' : 'w-0'"
@@ -79,7 +86,7 @@
 
             <!-- Bas de sidebar -->
             <div class="p-4 border-t border-gray-700 space-y-2">
-                <button @click="darkMode = !darkMode"
+                <button @click="toggleDark()"
                         class="w-full text-left px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-gray-700 transition">
                     <span x-text="darkMode ? 'Mode Clair' : 'Mode Sombre'"></span>
                 </button>
