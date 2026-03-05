@@ -39,13 +39,13 @@
         <div class="p-4">
             <div class="flex justify-between items-start mb-2">
                 <h3 class="font-semibold text-gray-800 dark:text-white">Chambre {{ $room->numero }}</h3>
-                <span class="text-yellow-500 font-bold text-sm">{{ number_format($room->prix_nuit, 2) }} $/nuit</span>
+                <span class="text-yellow-500 font-bold text-sm">{{ number_format($room->prix_nuit, 2) }} MGA/nuit</span>
             </div>
             <p class="text-xs text-gray-500 dark:text-gray-400 mb-3">{{ $room->type }}</p>
             <p class="text-xs text-gray-400 dark:text-gray-500 line-clamp-2">{{ $room->description }}</p>
 
             <!-- Actions -->
-            <div class="flex gap-2 mt-4">
+            <div class="flex gap-2 mt-4 flex-wrap">
                 <a href="{{ route('rooms.show', $room) }}"
                    class="flex-1 text-center text-xs bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 py-2 rounded-lg transition">
                     Voir
@@ -55,6 +55,15 @@
                    class="flex-1 text-center text-xs bg-yellow-400 hover:bg-yellow-500 text-gray-900 py-2 rounded-lg transition">
                     Modifier
                 </a>
+                <!-- Statut rapide -->
+                <div class="w-full mt-1">
+                    <select onchange="window.location='/rooms/{{ $room->id }}/statut?statut='+this.value"
+                            class="w-full text-xs border border-gray-300 dark:border-gray-600 dark:bg-gray-700 rounded-lg px-2 py-1 focus:outline-none">
+                        <option value="disponible" {{ $room->statut === 'disponible' ? 'selected' : '' }}>Disponible</option>
+                        <option value="occupee" {{ $room->statut === 'occupee' ? 'selected' : '' }}>Occupee</option>
+                        <option value="menage" {{ $room->statut === 'menage' ? 'selected' : '' }}>Menage</option>
+                    </select>
+                </div>
                 @endif
                 @if(auth()->user()->isAdmin())
                 <form method="POST" action="{{ route('rooms.destroy', $room) }}"

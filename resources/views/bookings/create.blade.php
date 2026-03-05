@@ -30,7 +30,7 @@
                 @foreach($rooms as $room)
                     <option value="{{ $room->id }}"
                         {{ old('room_id', request('room_id')) == $room->id ? 'selected' : '' }}>
-                        Chambre {{ $room->numero }} - {{ $room->type }} - {{ number_format($room->prix_nuit, 2) }} $/nuit
+                        Chambre {{ $room->numero }} - {{ $room->type }} - {{ number_format($room->prix_nuit, 2) }} MGA/nuit
                     </option>
                 @endforeach
             </select>

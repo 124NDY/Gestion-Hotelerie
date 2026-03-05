@@ -21,7 +21,7 @@
                     ({{ $booking->nuits }} nuits)
                 </p>
             </div>
-            <p class="text-2xl font-bold text-yellow-500">{{ number_format($booking->total_prix, 2) }} $</p>
+            <p class="text-2xl font-bold text-yellow-500">{{ number_format($booking->total_prix, 2) }} MGA</p>
         </div>
     </div>
 
@@ -43,7 +43,7 @@
             <div class="bg-yellow-50 dark:bg-gray-700 rounded-lg p-4">
                 <p class="text-sm text-gray-600 dark:text-gray-300">
                     Montant a encaisser :
-                    <span class="text-xl font-bold text-yellow-600 ml-2">{{ number_format($booking->total_prix, 2) }} $</span>
+                    <span class="text-xl font-bold text-yellow-600 ml-2">{{ number_format($booking->total_prix, 2) }} MGA</span>
                 </p>
             </div>
 

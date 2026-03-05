@@ -61,8 +61,8 @@
                         </p>
                     </td>
                     <td class="py-4 text-center">{{ $payment->booking->nuits }}</td>
-                    <td class="py-4 text-right">{{ number_format($payment->booking->room->prix_nuit, 2) }} $</td>
-                    <td class="py-4 text-right font-semibold">{{ number_format($payment->montant, 2) }} $</td>
+                    <td class="py-4 text-right">{{ number_format($payment->booking->room->prix_nuit, 2) }} MGA</td>
+                    <td class="py-4 text-right font-semibold">{{ number_format($payment->montant, 2) }} MGA</td>
                 </tr>
             </tbody>
         </table>
@@ -72,7 +72,7 @@
             <div class="w-64">
                 <div class="flex justify-between py-2 border-t-2 border-gray-800">
                     <span class="font-bold text-gray-800">Total paye</span>
-                    <span class="font-bold text-xl text-yellow-500">{{ number_format($payment->montant, 2) }} $</span>
+                    <span class="font-bold text-xl text-yellow-500">{{ number_format($payment->montant, 2) }} MGA</span>
                 </div>
                 <p class="text-xs text-gray-400 mt-2 text-right">Methode : {{ ucfirst($payment->methode) }}</p>
             </div>

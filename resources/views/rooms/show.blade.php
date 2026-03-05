@@ -28,7 +28,7 @@
                     <h2 class="text-2xl font-bold text-gray-800 dark:text-white">Chambre {{ $room->numero }}</h2>
                     <p class="text-gray-500 dark:text-gray-400">{{ $room->type }}</p>
                 </div>
-                <p class="text-2xl font-bold text-yellow-500">{{ number_format($room->prix_nuit, 2) }} $/nuit</p>
+                <p class="text-2xl font-bold text-yellow-500">{{ number_format($room->prix_nuit, 2) }} MGA/nuit</p>
             </div>
 
             <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-6">{{ $room->description }}</p>

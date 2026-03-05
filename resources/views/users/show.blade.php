@@ -41,7 +41,7 @@
                         </p>
                     </div>
                     <div class="text-right">
-                        <p class="font-bold text-yellow-500">{{ number_format($booking->total_prix, 2) }} $</p>
+                        <p class="font-bold text-yellow-500">{{ number_format($booking->total_prix, 2) }} MGA</p>
                         <span class="text-xs {{ $booking->statut_booking === 'confirme' ? 'text-green-600' : 'text-red-500' }}">
                             {{ ucfirst($booking->statut_booking) }}
                         </span>

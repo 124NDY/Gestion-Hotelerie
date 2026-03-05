@@ -24,7 +24,7 @@
         <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
             <div>
                 <h1 class="text-2xl font-bold gold">Laravel Hotel</h1>
-                <p class="text-xs text-gray-400 -mt-1">Experience Prestige</p>
+                <p class="text-xs text-gray-400 -mt-1">Votre sejour, notre priorite</p>
             </div>
             <div class="hidden md:flex items-center gap-8">
                 <a href="#chambres" class="text-sm text-gray-300 hover:text-yellow-400 transition">Chambres</a>
@@ -60,11 +60,11 @@
         <div class="relative text-center max-w-4xl mx-auto px-6">
             <p class="text-yellow-400 text-sm font-medium tracking-widest uppercase mb-4">Bienvenue a Laravel Hotel</p>
             <h2 class="text-5xl md:text-7xl font-bold text-white leading-tight mb-6">
-                L'Art de Vivre<br>
-                <span class="gold">le Luxe</span>
+                Un sejour simple<br>
+                <span class="gold">et agreable</span>
             </h2>
             <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-                Découvrez un séjour d'exception au coeur de Paris. Chambres raffinées, service personnalisé et expériences inoubliables.
+                Reservez votre chambre en quelques clics. Chambres propres, personnel disponible et sejour sans tracas.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="{{ route('register') }}"
@@ -73,7 +73,7 @@
                 </a>
                 <a href="#chambres"
                    class="border border-gray-600 hover:border-yellow-400 text-gray-300 hover:text-yellow-400 font-medium px-8 py-4 rounded-lg text-base transition">
-                    Voir les chambres
+                   En savoir plus
                 </a>
             </div>
         </div>
@@ -144,7 +144,7 @@
                     <div class="p-5">
                         <div class="flex justify-between items-start mb-2">
                             <h3 class="font-semibold text-white">Chambre {{ $room->numero }}</h3>
-                            <span class="text-yellow-400 font-bold text-sm">{{ number_format($room->prix_nuit, 0) }} $/nuit</span>
+                            <span class="text-yellow-400 font-bold text-sm">{{ number_format($room->prix_nuit, 0) }} MGA/nuit</span>
                         </div>
                         <p class="text-xs text-gray-400 mb-3">{{ $room->type }}</p>
                         <p class="text-xs text-gray-500 line-clamp-2 mb-4">{{ $room->description }}</p>
@@ -168,15 +168,16 @@
                 <div>
                     <h3 class="text-2xl font-bold gold mb-4">Laravel Hotel</h3>
                     <p class="text-gray-400 text-sm leading-relaxed">
-                        Un établissement de prestige au coeur de Paris, dédié à l'art de recevoir et à l'excellence du service.
+                        Un etablissement simple et accueillant.
+                        Notre objectif est de rendre votre sejour aussi agreable que possible.
                     </p>
                 </div>
                 <div>
                     <h4 class="text-white font-semibold mb-4">Contact</h4>
                     <div class="space-y-2 text-sm text-gray-400">
-                        <p>123 Avenue des Palmes, Paris</p>
-                        <p>+33 1 23 45 67 89</p>
-                        <p>contact@hotelluxe.com</p>
+                        <p>Antananarivo, Madagascar</p>
+                        <p>+261 34 00 000 00</p>
+                        <p>contact@laravel-hotel.mg</p>
                     </div>
                 </div>
                 <div>
@@ -189,7 +190,7 @@
                 </div>
             </div>
             <div class="mt-12 pt-8 border-t border-gray-800 text-center">
-                <p class="text-gray-500 text-sm">2024 Laravel Hotel. Tous droits reserves.</p>
+                <p class="text-gray-500 text-sm">{{ date('Y') }} Laravel Hotel. Tous droits reserves.</p>
             </div>
         </div>
     </section>

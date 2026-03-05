@@ -104,6 +104,14 @@
         </svg>
     </button>
 
+    <button @click.stop="sidebarOpen = !sidebarOpen"
+            class="fixed top-4 left-4 z-50 w-10 h-10 bg-yellow-400 hover:bg-yellow-500 text-gray-900 rounded-full shadow-lg flex items-center justify-center transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+
     <!-- Contenu principal -->
     <div class="flex-1 flex flex-col min-w-0">
 

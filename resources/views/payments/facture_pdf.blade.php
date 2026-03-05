@@ -71,12 +71,12 @@
                     </span>
                 </td>
                 <td class="text-center">{{ $payment->booking->nuits }}</td>
-                <td class="text-right">{{ number_format($payment->booking->room->prix_nuit, 2) }} $</td>
-                <td class="text-right"><strong>{{ number_format($payment->montant, 2) }} $</strong></td>
+                <td class="text-right">{{ number_format($payment->booking->room->prix_nuit, 2) }} MGA</td>
+                <td class="text-right"><strong>{{ number_format($payment->montant, 2) }} MGA</strong></td>
             </tr>
             <tr class="total-row">
                 <td colspan="3" class="text-right">Total paye</td>
-                <td class="text-right gold">{{ number_format($payment->montant, 2) }} $</td>
+                <td class="text-right gold">{{ number_format($payment->montant, 2) }} MGA</td>
             </tr>
         </tbody>
     </table>

@@ -28,8 +28,8 @@
 
     <div class="bg-white dark:bg-gray-800 rounded-xl shadow p-6 border-l-4 border-green-400">
         <p class="text-sm text-gray-500 dark:text-gray-400">Recettes du Mois</p>
-        <p class="text-3xl font-bold text-gray-800 dark:text-white mt-1">{{ number_format($stats['recettes_mois'], 2) }} $</p>
-        <p class="text-xs text-gray-400 mt-2">{{ number_format($stats['recettes_jour'], 2) }} $ aujourd'hui</p>
+        <p class="text-3xl font-bold text-gray-800 dark:text-white mt-1">{{ number_format($stats['recettes_mois'], 2) }} MGA</p>
+        <p class="text-xs text-gray-400 mt-2">{{ number_format($stats['recettes_jour'], 2) }} MGA aujourd'hui</p>
     </div>
 
 </div>
@@ -69,7 +69,7 @@
                             {{ $booking->date_debut->format('d/m/Y') }} - {{ $booking->date_fin->format('d/m/Y') }}
                         </td>
                         <td class="py-3 font-semibold text-gray-800 dark:text-white">
-                            {{ number_format($booking->total_prix, 2) }} $
+                            {{ number_format($booking->total_prix, 2) }} MGA
                         </td>
                         <td class="py-3">
                             <span class="px-2 py-1 rounded-full text-xs font-medium

@@ -30,7 +30,7 @@
                     <div>
                         <p class="font-semibold text-gray-800 dark:text-white">Chambre {{ $booking->room->numero }}</p>
                         <p class="text-sm text-gray-500">{{ $booking->room->type }}</p>
-                        <p class="text-sm text-yellow-500 font-semibold">{{ number_format($booking->room->prix_nuit, 2) }} $/nuit</p>
+                        <p class="text-sm text-yellow-500 font-semibold">{{ number_format($booking->room->prix_nuit, 2) }} MGA/nuit</p>
                     </div>
                 </div>
             </div>
@@ -52,7 +52,7 @@
                 </div>
                 <div>
                     <p class="text-xs text-gray-500 dark:text-gray-400 mb-1">Total</p>
-                    <p class="font-bold text-yellow-500 text-lg">{{ number_format($booking->total_prix, 2) }} $</p>
+                    <p class="font-bold text-yellow-500 text-lg">{{ number_format($booking->total_prix, 2) }} MGA</p>
                 </div>
             </div>
         </div>

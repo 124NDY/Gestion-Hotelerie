@@ -82,12 +82,26 @@ class RoomController extends Controller
 
     public function updateStatut(Request $request, Room $room)
     {
-        $request->validate([
-            'statut' => 'required|in:disponible,occupee,menage',
-        ]);
-
-        $room->update(['statut' => $request->statut]);
-
+        $statut = $request->query('statut');
+    
+        if (!in_array($statut, ['disponible', 'occupee', 'menage'])) {
+            return back()->with('error', 'Statut invalide.');
+        }
+    
+        // Verifier si une reservation active existe avant de forcer disponible
+        if ($statut === 'disponible') {
+            $reservationActive = $room->bookings()
+                ->where('statut_booking', 'confirme')
+                ->where('date_fin', '>=', today())
+                ->exists();
+    
+            if ($reservationActive) {
+                return back()->with('error', 'Impossible de liberer cette chambre : une reservation active existe encore.');
+            }
+        }
+    
+        $room->update(['statut' => $statut]);
+    
         return back()->with('success', 'Statut mis a jour.');
     }
 

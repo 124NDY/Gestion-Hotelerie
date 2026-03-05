@@ -8,11 +8,11 @@
 <div class="grid grid-cols-2 gap-6 mb-8">
     <div class="bg-white dark:bg-gray-800 rounded-xl shadow p-6 border-l-4 border-yellow-400">
         <p class="text-sm text-gray-500 dark:text-gray-400">Recettes du jour</p>
-        <p class="text-3xl font-bold text-gray-800 dark:text-white mt-1">{{ number_format($total_jour, 2) }} $</p>
+        <p class="text-3xl font-bold text-gray-800 dark:text-white mt-1">{{ number_format($total_jour, 2) }} MGA</p>
     </div>
     <div class="bg-white dark:bg-gray-800 rounded-xl shadow p-6 border-l-4 border-green-400">
         <p class="text-sm text-gray-500 dark:text-gray-400">Recettes du mois</p>
-        <p class="text-3xl font-bold text-gray-800 dark:text-white mt-1">{{ number_format($total_mois, 2) }} $</p>
+        <p class="text-3xl font-bold text-gray-800 dark:text-white mt-1">{{ number_format($total_mois, 2) }} MGA</p>
     </div>
 </div>
 
@@ -53,7 +53,7 @@
                         </span>
                     </td>
                     <td class="px-6 py-4 font-bold text-green-600">
-                        {{ number_format($payment->montant, 2) }} $
+                        {{ number_format($payment->montant, 2) }} MGA
                     </td>
                     <td class="px-6 py-4 text-gray-500 dark:text-gray-400">
                         {{ $payment->date_paiement->format('d/m/Y') }}

@@ -30,7 +30,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/rooms', [RoomController::class, 'store'])->name('rooms.store');
         Route::get('/rooms/{room}/edit', [RoomController::class, 'edit'])->name('rooms.edit');
         Route::put('/rooms/{room}', [RoomController::class, 'update'])->name('rooms.update');
-        Route::patch('/rooms/{room}/statut', [RoomController::class, 'updateStatut'])->name('rooms.statut');
+        Route::get('/rooms/{room}/statut', [RoomController::class, 'updateStatut'])->name('rooms.statut');
     });
 
     Route::middleware(['role:admin'])->group(function () {

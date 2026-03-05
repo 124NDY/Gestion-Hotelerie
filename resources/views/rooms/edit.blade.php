@@ -51,30 +51,20 @@
         </div>
 
         <!-- Changer le statut -->
-        <div>
-            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Statut</label>
+        <div>            
             <form method="POST" action="{{ route('rooms.statut', $room) }}">
                 @csrf @method('PATCH')
-                <div class="flex gap-2">
-                    @foreach(['disponible' => 'bg-green-500', 'occupee' => 'bg-red-500', 'menage' => 'bg-orange-400'] as $statut => $color)
-                    <button type="submit" name="statut" value="{{ $statut }}"
-                            class="{{ $color }} {{ $room->statut === $statut ? 'ring-2 ring-offset-2 ring-gray-400' : 'opacity-60' }} text-white text-xs px-4 py-2 rounded-lg transition">
-                        {{ ucfirst($statut) }}
+                <div class="flex gap-3 pt-2">
+                    <button type="submit"
+                            class="flex-1 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold py-2 rounded-lg transition">
+                        Mettre a jour
                     </button>
-                    @endforeach
+                    <a href="{{ route('rooms.index') }}"
+                       class="flex-1 text-center bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 text-gray-700 dark:text-gray-300 py-2 rounded-lg transition">
+                        Annuler
+                    </a>
                 </div>
             </form>
-        </div>
-
-        <div class="flex gap-3 pt-2">
-            <button type="submit"
-                    class="flex-1 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold py-2 rounded-lg transition">
-                Mettre a jour
-            </button>
-            <a href="{{ route('rooms.index') }}"
-               class="flex-1 text-center bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 text-gray-700 dark:text-gray-300 py-2 rounded-lg transition">
-                Annuler
-            </a>
         </div>
     </form>
 </div>

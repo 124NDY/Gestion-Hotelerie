@@ -52,7 +52,7 @@
                         {{ $booking->nuits }}
                     </td>
                     <td class="px-6 py-4 font-semibold text-gray-800 dark:text-white">
-                        {{ number_format($booking->total_prix, 2) }} $
+                        {{ number_format($booking->total_prix, 2) }} MGA
                     </td>
                     <td class="px-6 py-4">
                         <span class="px-2 py-1 rounded-full text-xs font-medium
