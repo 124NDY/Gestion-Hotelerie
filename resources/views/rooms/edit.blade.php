@@ -14,6 +14,7 @@
              class="w-full h-48 object-cover rounded-lg" alt="Photo chambre">
     </div>
 
+    <!-- Formulaire principal de modification -->
     <form method="POST" action="{{ route('rooms.update', $room) }}" enctype="multipart/form-data" class="space-y-5">
         @csrf @method('PUT')
 
@@ -33,7 +34,7 @@
         </div>
 
         <div>
-            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Prix par nuit ($)</label>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Prix par nuit (MGA)</label>
             <input type="number" name="prix_nuit" value="{{ old('prix_nuit', $room->prix_nuit) }}" step="0.01" min="0"
                    class="w-full border border-gray-300 dark:border-gray-600 dark:bg-gray-700 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400">
         </div>
@@ -50,23 +51,18 @@
                    class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-yellow-400 file:text-gray-900 file:font-semibold hover:file:bg-yellow-500">
         </div>
 
-        <!-- Changer le statut -->
-        <div>            
-            <form method="POST" action="{{ route('rooms.statut', $room) }}">
-                @csrf @method('PATCH')
-                <div class="flex gap-3 pt-2">
-                    <button type="submit"
-                            class="flex-1 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold py-2 rounded-lg transition">
-                        Mettre a jour
-                    </button>
-                    <a href="{{ route('rooms.index') }}"
-                       class="flex-1 text-center bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 text-gray-700 dark:text-gray-300 py-2 rounded-lg transition">
-                        Annuler
-                    </a>
-                </div>
-            </form>
+        <div class="flex gap-3 pt-2">
+            <button type="submit"
+                    class="flex-1 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold py-2 rounded-lg transition">
+                Mettre a jour
+            </button>
+            <a href="{{ route('rooms.index') }}"
+               class="flex-1 text-center bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 text-gray-700 dark:text-gray-300 py-2 rounded-lg transition">
+                Annuler
+            </a>
         </div>
     </form>
+
 </div>
 
 @endsection
